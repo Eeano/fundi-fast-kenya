@@ -16,7 +16,6 @@ h2{font-size:19px;margin:15px 0 8px}
 .county-btn{display:inline-block;background:#e3f2fd;padding:10px 14px;margin:5px;border-radius:20px;font-weight:bold;cursor:pointer;border:1px solid #90caf9}
 .county-btn.active{background:#111;color:#fff}
 .card{background:#fff;margin:12px 15px;padding:15px;border-radius:12px;display:none}
-.card.show{display:block}
 .card h3{margin:0}
 .price{color:green;font-weight:bold}
 .badge{background:#e8f5e9;color:green;padding:4px 8px;border-radius:20px;font-size:12px}
@@ -47,7 +46,6 @@ label{font-weight:bold;font-size:14px}
 
 <div class="section" id="provinceSection">
 <h2>1. Choose Your Province 👇</h2>
-
 <button class="prov-btn" onclick="showProvince('coast')">🌊 Coast Province <span>›</span></button>
 <div class="county-box" id="coast">
 <button class="county-btn" onclick="showCounty('Mombasa',this)">Mombasa</button>
@@ -57,14 +55,12 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Lamu',this)">Lamu</button>
 <button class="county-btn" onclick="showCounty('Taita-Taveta',this)">Taita-Taveta</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('northeastern')">🏜️ North Eastern Province <span>›</span></button>
 <div class="county-box" id="northeastern">
 <button class="county-btn" onclick="showCounty('Garissa',this)">Garissa</button>
 <button class="county-btn" onclick="showCounty('Wajir',this)">Wajir</button>
 <button class="county-btn" onclick="showCounty('Mandera',this)">Mandera</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('eastern')">⛰️ Eastern Province <span>›</span></button>
 <div class="county-box" id="eastern">
 <button class="county-btn" onclick="showCounty('Marsabit',this)">Marsabit</button>
@@ -76,7 +72,6 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Machakos',this)">Machakos</button>
 <button class="county-btn" onclick="showCounty('Makueni',this)">Makueni</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('central')">🌳 Central Province <span>›</span></button>
 <div class="county-box" id="central">
 <button class="county-btn" onclick="showCounty('Nyandarua',this)">Nyandarua</button>
@@ -85,7 +80,6 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Murang\'a',this)">Murang'a</button>
 <button class="county-btn" onclick="showCounty('Kiambu',this)">Kiambu</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('rift')">🏔️ Rift Valley Province <span>›</span></button>
 <div class="county-box" id="rift">
 <button class="county-btn" onclick="showCounty('Turkana',this)">Turkana</button>
@@ -103,7 +97,6 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Kericho',this)">Kericho</button>
 <button class="county-btn" onclick="showCounty('Bomet',this)">Bomet</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('western')">🌾 Western Province <span>›</span></button>
 <div class="county-box" id="western">
 <button class="county-btn" onclick="showCounty('Kakamega',this)">Kakamega</button>
@@ -111,7 +104,6 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Bungoma',this)">Bungoma</button>
 <button class="county-btn" onclick="showCounty('Busia',this)">Busia</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('nyanza')">🎣 Nyanza Province <span>›</span></button>
 <div class="county-box" id="nyanza">
 <button class="county-btn" onclick="showCounty('Siaya',this)">Siaya</button>
@@ -121,7 +113,6 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Kisii',this)">Kisii</button>
 <button class="county-btn" onclick="showCounty('Nyamira',this)">Nyamira</button>
 </div>
-
 <button class="prov-btn" onclick="showProvince('nairobi')">🏙️ Nairobi Province <span>›</span></button>
 <div class="county-box" id="nairobi">
 <button class="county-btn" onclick="showCounty('Nairobi',this)">Nairobi</button>
@@ -141,13 +132,22 @@ label{font-weight:bold;font-size:14px}
 </div>
 </div>
 
-<!-- ========== FUNDI PROFILES - ADD NEW FUNDIS HERE ========== -->
+<!-- ========== FUNDI PROFILES ========== -->
+<!-- HOW TO ADD NEW FUNDI:
+1. Fundi fills form -> You get WhatsApp message
+2. Copy that message -> Send to Meta AI
+3. Meta AI gives you a card
+4. PASTE THAT CARD RIGHT BELOW THIS LINE:  *** PASTE NEW FUNDIS HERE ***
+5. Commit. Done.
+-->
 <div id="fundiCards" style="display:none">
 
-<!-- WELDER NAIROBI - WITH PHOTO EXAMPLE - If no photo, use initial version below -->
+<!-- *** PASTE NEW FUNDIS HERE *** - Paste cards from Meta AI right here, above this line -->
+
+<!-- WELDER NAIROBI - EXAMPLE - Replace with real when you get details -->
 <div class="card" data-county="Nairobi" data-skill="Welder">
 <div class="fundi-top">
-<img class="fundi-avatar" src="welder-kevin-1.jpg" onerror="this.style.display='none'">
+<div class="fundi-initial">K</div>
 <div class="fundi-info">
 <h3>🔥 Kevin Otieno - Welder <span class="badge">Verified</span></h3>
 <p>📍 Residence: Kayole, Nairobi</p>
@@ -155,16 +155,12 @@ label{font-weight:bold;font-size:14px}
 <p class="price">From KES 1,500 | Available Today</p>
 </div>
 </div>
-<p style="font-size:13px;color:#666;margin:8px 0 0">My Recent Work 👇</p>
-<div class="work-photos">
-<img src="welder-kevin-1.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Work+1'">
-<img src="welder-kevin-2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Work+2'">
-</div>
+<p style="font-size:13px;color:#666;margin-top:10px">Photo optional - Verified by Fundi Fast Kenya. Ask for photos on WhatsApp before job.</p>
 <a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20WELDER%20Kevin%20in%20Nairobi%20(Kayole)">WhatsApp to Book Kevin →</a>
 <p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
 </div>
 
-<!-- MECHANIC NAIROBI - NO PHOTO EXAMPLE - Initial Letter -->
+<!-- MECHANIC NAIROBI - EXAMPLE -->
 <div class="card" data-county="Nairobi" data-skill="Mechanic">
 <div class="fundi-top">
 <div class="fundi-initial">B</div>
@@ -175,12 +171,12 @@ label{font-weight:bold;font-size:14px}
 <p class="price">From KES 1,000 | Available Today</p>
 </div>
 </div>
-<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya. Ask for photos on WhatsApp before job.</p>
+<p style="font-size:13px;color:#666;margin-top:10px">Photo optional - Verified by Fundi Fast Kenya.</p>
 <a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20MECHANIC%20Brian%20in%20Nairobi%20(Roysambu)">WhatsApp to Book Brian →</a>
 <p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
 </div>
 
-<!-- PLUMBER SIAYA - NO PHOTO EXAMPLE -->
+<!-- PLUMBER SIAYA - EXAMPLE -->
 <div class="card" data-county="Siaya" data-skill="Plumber">
 <div class="fundi-top">
 <div class="fundi-initial">O</div>
@@ -191,66 +187,29 @@ label{font-weight:bold;font-size:14px}
 <p class="price">From KES 500 | Available Today</p>
 </div>
 </div>
-<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya.</p>
+<p style="font-size:13px;color:#666;margin-top:10px">Photo optional - Verified by Fundi Fast Kenya.</p>
 <a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20Otis%20in%20Siaya">WhatsApp to Book Otis →</a>
 <p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
 </div>
 
-<!-- ===== TEMPLATE TO COPY FOR NEW FUNDI - NO PHOTO =====
-<div class="card" data-county="COUNTY" data-skill="SKILL">
-<div class="fundi-top">
-<div class="fundi-initial">X</div>
-<div class="fundi-info">
-<h3>🔧 NAME - SKILL <span class="badge">Verified</span></h3>
-<p>📍 Residence: TOWN, COUNTY</p>
-<p>⭐ Experience: X Years | <span class="tag">What he does</span></p>
-<p class="price">From KES XXX | Available Today</p>
-</div>
-</div>
-<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya.</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20SKILL%20NAME%20in%20COUNTY">WhatsApp to Book NAME →</a>
-<p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
-</div>
--->
-
 </div>
 
-<!-- ========== JOIN FORM - FUNDIS JOIN HERE ========== -->
+<!-- ========== JOIN FORM - FUNDI FILLS THIS ========== -->
 <div class="join-box">
 <h3>Are you a Fundi? Join - All 47 Counties</h3>
 <p>Get customers in your county. Pay only KES 200 when you get work. Your number will NOT be shown on website.</p>
-
 <label>Full Name *</label>
 <input id="fName" placeholder="e.g. Kevin Otieno">
-
 <label>Your Phone Number *</label>
 <input id="fPhone" placeholder="e.g. 0712345678">
-
 <label>Type of Work *</label>
 <select id="fSkill">
-<option>Plumber</option>
-<option>Electrician</option>
-<option>Painter</option>
-<option>Carpenter</option>
-<option>Welder</option>
-<option>Mechanic</option>
-<option>Mama Fua</option>
-<option>Mason / Fundi wa Mjengo</option>
-<option>Other</option>
+<option>Plumber</option><option>Electrician</option><option>Painter</option><option>Carpenter</option><option>Welder</option><option>Mechanic</option><option>Mama Fua</option><option>Mason / Fundi wa Mjengo</option><option>Other</option>
 </select>
-
 <label>Province *</label>
 <select id="fProvince">
-<option>Coast</option>
-<option>North Eastern</option>
-<option>Eastern</option>
-<option>Central</option>
-<option>Rift Valley</option>
-<option>Western</option>
-<option>Nyanza</option>
-<option>Nairobi</option>
+<option>Coast</option><option>North Eastern</option><option>Eastern</option><option>Central</option><option>Rift Valley</option><option>Western</option><option>Nyanza</option><option>Nairobi</option>
 </select>
-
 <label>County *</label>
 <select id="fCounty">
 <option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option>
@@ -261,16 +220,12 @@ label{font-weight:bold;font-size:14px}
 <option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option>
 <option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option>
 </select>
-
 <label>Residence / Town *</label>
 <input id="fTown" placeholder="e.g. Kayole">
-
 <label>Years Experience</label>
 <input id="fExp" placeholder="e.g. 6">
-
 <label>Price From (KES)</label>
 <input id="fPrice" placeholder="e.g. 1500">
-
 <a href="#" onclick="joinFundi();return false;" style="display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px">Send to Fundi Fast Kenya →</a>
 <p style="font-size:12px;color:#666;text-align:center">Photo is optional. You can send photos on WhatsApp after.</p>
 </div>
