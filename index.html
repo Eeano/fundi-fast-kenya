@@ -8,14 +8,21 @@ body{font-family:Arial;margin:0;background:#f5f5f5}
 .header{background:#111;color:#fff;padding:25px;text-align:center}
 .header h1{margin:0;font-size:26px}
 .header p{color:#ffcc00}
-.search{padding:15px}
-.search select{width:100%;padding:14px;font-size:16px;border-radius:10px;border:1px solid #ccc;margin-bottom:10px}
-.card{background:#fff;margin:12px 15px;padding:15px;border-radius:12px}
+.section{padding:15px}
+h2{font-size:19px;margin:15px 0 8px}
+.prov-btn{display:block;background:#fff;border:2px solid #111;padding:16px;margin:8px 0;border-radius:12px;font-size:17px;font-weight:bold;text-align:left;cursor:pointer;width:100%}
+.prov-btn span{float:right}
+.county-box{display:none;background:#fff;border-radius:12px;padding:10px;margin:0 0 15px;border:1px solid #ddd}
+.county-btn{display:inline-block;background:#e3f2fd;padding:10px 14px;margin:5px;border-radius:20px;font-weight:bold;cursor:pointer;border:1px solid #90caf9}
+.county-btn.active{background:#111;color:#fff}
+.card{background:#fff;margin:12px 15px;padding:15px;border-radius:12px;display:none}
+.card.show{display:block}
 .card h3{margin:0}
 .price{color:green;font-weight:bold}
 .badge{background:#e8f5e9;color:green;padding:4px 8px;border-radius:20px;font-size:12px}
 .btn{display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
 .btn2{display:block;background:#111;color:#fff;text-align:center;padding:12px;border-radius:10px;text-decoration:none;margin-top:8px}
+.back{color:#111;font-weight:bold;cursor:pointer}
 .footer{text-align:center;padding:20px;color:#888;font-size:13px}
 </style>
 </head>
@@ -27,63 +34,112 @@ body{font-family:Arial;margin:0;background:#f5f5f5}
 <p>Home Base: Siaya County</p>
 </div>
 
-<div class="search">
-<label><b>1. Choose Your County:</b></label>
-<select id="county" onchange="filterCounty()">
-<option value="all">All Counties</option>
-<option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option>
-</select>
-<label><b>2. What do you need?</b></label>
-<select id="skill">
-<option>Plumber</option><option>Electrician</option><option>Painter</option><option>Carpenter</option><option>Mama Fua / Cleaner</option><option>Mason / Mjengo</option><option>Mechanic</option><option>Welder</option>
-</select>
+<div class="section" id="provinceSection">
+<h2>1. Choose Your Province 👇</h2>
+
+<button class="prov-btn" onclick="showProvince('coast')">🌊 Coast Province <span>›</span></button>
+<div class="county-box" id="coast">
+<button class="county-btn" onclick="showCounty('Mombasa',this)">Mombasa</button>
+<button class="county-btn" onclick="showCounty('Kwale',this)">Kwale</button>
+<button class="county-btn" onclick="showCounty('Kilifi',this)">Kilifi</button>
+<button class="county-btn" onclick="showCounty('Tana River',this)">Tana River</button>
+<button class="county-btn" onclick="showCounty('Lamu',this)">Lamu</button>
+<button class="county-btn" onclick="showCounty('Taita-Taveta',this)">Taita-Taveta</button>
 </div>
 
-<div id="list">
-<div class="card" data-county="Siaya">
-<h3>🔧 Plumber - Siaya <span class="badge">Verified</span></h3>
-<p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Siaya">WhatsApp for Plumber in Siaya →</a>
+<button class="prov-btn" onclick="showProvince('northeastern')">🏜️ North Eastern Province <span>›</span></button>
+<div class="county-box" id="northeastern">
+<button class="county-btn" onclick="showCounty('Garissa',this)">Garissa</button>
+<button class="county-btn" onclick="showCounty('Wajir',this)">Wajir</button>
+<button class="county-btn" onclick="showCounty('Mandera',this)">Mandera</button>
 </div>
 
-<div class="card" data-county="Siaya">
-<h3>⚡ Electrician - Siaya <span class="badge">Verified</span></h3>
-<p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Siaya">WhatsApp for Electrician in Siaya →</a>
+<button class="prov-btn" onclick="showProvince('eastern')">⛰️ Eastern Province <span>›</span></button>
+<div class="county-box" id="eastern">
+<button class="county-btn" onclick="showCounty('Marsabit',this)">Marsabit</button>
+<button class="county-btn" onclick="showCounty('Isiolo',this)">Isiolo</button>
+<button class="county-btn" onclick="showCounty('Meru',this)">Meru</button>
+<button class="county-btn" onclick="showCounty('Tharaka-Nithi',this)">Tharaka-Nithi</button>
+<button class="county-btn" onclick="showCounty('Embu',this)">Embu</button>
+<button class="county-btn" onclick="showCounty('Kitui',this)">Kitui</button>
+<button class="county-btn" onclick="showCounty('Machakos',this)">Machakos</button>
+<button class="county-btn" onclick="showCounty('Makueni',this)">Makueni</button>
 </div>
 
-<div class="card" data-county="Siaya">
-<h3>🎨 Painter - Siaya <span class="badge">Verified</span></h3>
-<p class="price">From KES 2,000 | Siaya Town, Bondo</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PAINTER%20in%20Siaya">WhatsApp for Painter in Siaya →</a>
+<button class="prov-btn" onclick="showProvince('central')">🌳 Central Province <span>›</span></button>
+<div class="county-box" id="central">
+<button class="county-btn" onclick="showCounty('Nyandarua',this)">Nyandarua</button>
+<button class="county-btn" onclick="showCounty('Nyeri',this)">Nyeri</button>
+<button class="county-btn" onclick="showCounty('Kirinyaga',this)">Kirinyaga</button>
+<button class="county-btn" onclick="showCounty('Murang\'a',this)">Murang'a</button>
+<button class="county-btn" onclick="showCounty('Kiambu',this)">Kiambu</button>
 </div>
 
-<div class="card" data-county="Kisumu">
-<h3>🔧 Plumber - Kisumu <span class="badge">Verified</span></h3>
-<p class="price">Visit: KES 500 | Kisumu - Milimani, Kondele</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Kisumu">WhatsApp for Plumber in Kisumu →</a>
+<button class="prov-btn" onclick="showProvince('rift')">🏔️ Rift Valley Province <span>›</span></button>
+<div class="county-box" id="rift">
+<button class="county-btn" onclick="showCounty('Turkana',this)">Turkana</button>
+<button class="county-btn" onclick="showCounty('West Pokot',this)">West Pokot</button>
+<button class="county-btn" onclick="showCounty('Samburu',this)">Samburu</button>
+<button class="county-btn" onclick="showCounty('Trans Nzoia',this)">Trans Nzoia</button>
+<button class="county-btn" onclick="showCounty('Uasin Gishu',this)">Uasin Gishu</button>
+<button class="county-btn" onclick="showCounty('Elgeyo-Marakwet',this)">Elgeyo-Marakwet</button>
+<button class="county-btn" onclick="showCounty('Nandi',this)">Nandi</button>
+<button class="county-btn" onclick="showCounty('Baringo',this)">Baringo</button>
+<button class="county-btn" onclick="showCounty('Laikipia',this)">Laikipia</button>
+<button class="county-btn" onclick="showCounty('Nakuru',this)">Nakuru</button>
+<button class="county-btn" onclick="showCounty('Narok',this)">Narok</button>
+<button class="county-btn" onclick="showCounty('Kajiado',this)">Kajiado</button>
+<button class="county-btn" onclick="showCounty('Kericho',this)">Kericho</button>
+<button class="county-btn" onclick="showCounty('Bomet',this)">Bomet</button>
 </div>
 
-<div class="card" data-county="Nairobi">
-<h3>🔧 Plumber - Nairobi <span class="badge">Verified</span></h3>
-<p class="price">Visit: KES 500 | Nairobi - Roysambu, Kasarani, Westlands</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Nairobi">WhatsApp for Plumber in Nairobi →</a>
+<button class="prov-btn" onclick="showProvince('western')">🌾 Western Province <span>›</span></button>
+<div class="county-box" id="western">
+<button class="county-btn" onclick="showCounty('Kakamega',this)">Kakamega</button>
+<button class="county-btn" onclick="showCounty('Vihiga',this)">Vihiga</button>
+<button class="county-btn" onclick="showCounty('Bungoma',this)">Bungoma</button>
+<button class="county-btn" onclick="showCounty('Busia',this)">Busia</button>
 </div>
 
-<div class="card" data-county="Mombasa">
-<h3>⚡ Electrician - Mombasa <span class="badge">Verified</span></h3>
-<p class="price">Visit: KES 500 | Mombasa - Nyali, Bamburi</p>
-<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Mombasa">WhatsApp for Electrician in Mombasa →</a>
+<button class="prov-btn" onclick="showProvince('nyanza')">🎣 Nyanza Province <span>›</span></button>
+<div class="county-box" id="nyanza">
+<button class="county-btn" onclick="showCounty('Siaya',this)">Siaya</button>
+<button class="county-btn" onclick="showCounty('Kisumu',this)">Kisumu</button>
+<button class="county-btn" onclick="showCounty('Homa Bay',this)">Homa Bay</button>
+<button class="county-btn" onclick="showCounty('Migori',this)">Migori</button>
+<button class="county-btn" onclick="showCounty('Kisii',this)">Kisii</button>
+<button class="county-btn" onclick="showCounty('Nyamira',this)">Nyamira</button>
+</div>
+
+<button class="prov-btn" onclick="showProvince('nairobi')">🏙️ Nairobi Province <span>›</span></button>
+<div class="county-box" id="nairobi">
+<button class="county-btn" onclick="showCounty('Nairobi',this)">Nairobi</button>
 </div>
 </div>
 
-<div class="card" style="background:#fff3cd">
-<h3>Don't see your county? We will find fundi for you</h3>
-<p>Tell us your county + what you need, we find fundi in 1 hour.</p>
-<a class="btn2" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20my%20county%20is%20not%20listed.%20I%20need%20a%20fundi">Request Fundi in My County →</a>
+<div id="resultSection" style="display:none">
+<p style="padding:0 15px"><span class="back" onclick="goBack()">← Back to Provinces</span></p>
+<h2 style="padding:0 15px" id="resultTitle">Fundis in Siaya</h2>
+<div id="list"></div>
+<div style="padding:0 15px">
+<div style="background:#fff3cd;padding:15px;border-radius:12px">
+<h3>Don't see your fundi? We will find for you</h3>
+<p id="requestText">Tell us what you need in this county.</p>
+<a class="btn2" id="requestBtn" href="#">Request Fundi in This County →</a>
+</div>
+</div>
 </div>
 
-<div class="card" style="background:#e3f2fd">
+<div id="fundiCards" style="display:none">
+<div class="card" data-county="Siaya" data-skill="Plumber"><h3>🔧 Plumber - Siaya <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Siaya">WhatsApp for Plumber in Siaya →</a></div>
+<div class="card" data-county="Siaya" data-skill="Electrician"><h3>⚡ Electrician - Siaya <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Siaya">WhatsApp for Electrician in Siaya →</a></div>
+<div class="card" data-county="Siaya" data-skill="Painter"><h3>🎨 Painter - Siaya <span class="badge">Verified</span></h3><p class="price">From KES 2,000 | Siaya Town, Bondo</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PAINTER%20in%20Siaya">WhatsApp for Painter in Siaya →</a></div>
+<div class="card" data-county="Kisumu" data-skill="Plumber"><h3>🔧 Plumber - Kisumu <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Kisumu - Milimani, Kondele</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Kisumu">WhatsApp for Plumber in Kisumu →</a></div>
+<div class="card" data-county="Nairobi" data-skill="Plumber"><h3>🔧 Plumber - Nairobi <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Nairobi - Roysambu, Kasarani, Westlands</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Nairobi">WhatsApp for Plumber in Nairobi →</a></div>
+<div class="card" data-county="Mombasa" data-skill="Electrician"><h3>⚡ Electrician - Mombasa <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Mombasa - Nyali, Bamburi</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Mombasa">WhatsApp for Electrician in Mombasa →</a></div>
+</div>
+
+<div class="card" style="display:block;background:#e3f2fd;margin:15px">
 <h3>Are you a Fundi? Join - All 47 Counties</h3>
 <p>Get customers in your county. Pay only KES 200 when you get work.</p>
 <a class="btn2" href="https://wa.me/254768643301?text=Hi,%20I%20am%20a%20FUNDI,%20I%20want%20to%20join%20Fundi%20Fast%20Kenya">I am a Fundi - Join →</a>
@@ -92,12 +148,42 @@ body{font-family:Arial;margin:0;background:#f5f5f5}
 <div class="footer">Fundi Fast Kenya - All 47 Counties<br>Home Base: Siaya | WhatsApp: 0768643301<br>Pay After Work. No Scam.</div>
 
 <script>
-function filterCounty(){
-var c=document.getElementById('county').value;
-var cards=document.querySelectorAll('#list .card');
-cards.forEach(function(card){
-if(c=='all' || card.getAttribute('data-county')==c){card.style.display='block'} else {card.style.display='none'}
-});
+function showProvince(id){
+  var boxes=document.querySelectorAll('.county-box');
+  boxes.forEach(function(b){ if(b.id!==id){b.style.display='none'} });
+  var box=document.getElementById(id);
+  box.style.display = box.style.display==='block' ? 'none' : 'block';
+}
+function showCounty(county, btn){
+  document.querySelectorAll('.county-btn').forEach(function(b){b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
+  document.getElementById('provinceSection').style.display='none';
+  document.getElementById('resultSection').style.display='block';
+  document.getElementById('resultTitle').innerText='Fundis in '+county;
+  document.getElementById('requestText').innerText='Tell us what you need in '+county+', we find fundi in 1 hour.';
+  document.getElementById('requestBtn').href='https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20a%20fundi%20in%20'+encodeURIComponent(county);
+  var list=document.getElementById('list');
+  list.innerHTML='';
+  var cards=document.querySelectorAll('#fundiCards .card');
+  var found=false;
+  cards.forEach(function(c){
+    if(c.getAttribute('data-county')===county){
+      var clone=c.cloneNode(true);
+      clone.style.display='block';
+      list.appendChild(clone);
+      found=true;
+    }
+  });
+  if(!found){
+    var div=document.createElement('div');
+    div.style.cssText='background:#fff;margin:12px 15px;padding:15px;border-radius:12px';
+    div.innerHTML='<h3>No fundi listed yet in '+county+'</h3><p>But we can find one for you in 1 hour. Click below.</p>';
+    list.appendChild(div);
+  }
+}
+function goBack(){
+  document.getElementById('resultSection').style.display='none';
+  document.getElementById('provinceSection').style.display='block';
 }
 </script>
 </body>
