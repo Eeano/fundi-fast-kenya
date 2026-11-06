@@ -20,8 +20,10 @@ h2{font-size:19px;margin:18px 0 8px}
 .fundi-card{background:#fff;margin:12px 15px;padding:15px;border-radius:12px;display:none}
 .price{color:green;font-weight:bold}
 .badge{background:#e8f5e9;color:#1b5e20;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:bold}
+.badge-top{background:#ffcc00;color:#111;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:bold}
 .badge-grey{background:#eeeeee;color:#555;padding:4px 8px;border-radius:20px;font-size:12px}
 .btn{display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.btn-yellow{display:block;background:#ffcc00;color:#111;text-align:center;padding:16px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px;font-size:17px}
 .btn-dark{display:block;background:#111;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
 .btn2{display:block;background:#111;color:#fff;text-align:center;padding:12px;border-radius:10px;text-decoration:none;margin-top:8px}
 .back{color:#111;font-weight:bold;cursor:pointer}
@@ -34,8 +36,15 @@ h2{font-size:19px;margin:18px 0 8px}
 input,select,textarea{width:100%;padding:12px;margin:5px 0;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;font-family:Arial}
 label{font-weight:bold;font-size:14px}
 .join-box{background:#fff;margin:15px;padding:16px;border-radius:12px;border:2px solid #111}
+.quick-box{background:#fff;margin:15px;padding:16px;border-radius:12px;border:2px solid #ffcc00}
+.report-box{background:#fff;margin:15px;padding:16px;border-radius:12px;border:2px solid #111}
 .notice{background:#fff3cd;padding:12px;border-radius:10px;font-size:14px}
 .small{font-size:13px;color:#666}
+.work-photos{display:flex;gap:8px;margin-top:10px}
+.work-photos img{width:50%;height:110px;object-fit:cover;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+table td,table th{border:1px solid #eee;padding:8px;text-align:left}
+table th{background:#f5f5f5}
 </style>
 </head>
 <body>
@@ -44,24 +53,63 @@ label{font-weight:bold;font-size:14px}
 <h1>🔧 FUNDI FAST KENYA</h1>
 <p>Find a Fundi. Get the Job Done. Pay After Work.</p>
 <p class="sub">Trusted fundis across Kenya. Home Base: Siaya County.</p>
-<a href="#find" class="btn" style="background:#ffcc00;color:#111">Find a Fundi →</a>
+<a href="#quick" class="btn-yellow">⚡ I NEED A FUNDI NOW →</a>
+<a href="#report" class="btn" style="background:#fff;color:#111">📋 Report Job Done / No Show →</a>
+<a href="#find" class="btn" style="background:#fff;color:#111">Browse Fundis by County →</a>
 <a href="#join" class="btn" style="background:#fff;color:#111">Register as a Fundi →</a>
 <p class="small" style="color:#ccc">Response times depend on fundi availability.</p>
+</div>
+
+<div class="quick-box" id="quick">
+<h3 style="margin:0">⚡ I Need a Fundi Now - 30 Seconds</h3>
+<p class="small">Tell us what you need, we find a fundi for you. You will get a Job ID - save it to report the job later.</p>
+<label>What work do you need? *</label>
+<select id="qSkill"><option>Plumber</option><option>Electrician</option><option>Painter</option><option>Carpenter</option><option>Welder</option><option>Mechanic</option><option>Mama Fua</option><option>Mason / Fundi wa Mjengo</option><option>Other</option></select>
+<label>Describe the job</label>
+<input id="qNeed" placeholder="e.g. Fix leaking pipe in bathroom">
+<label>Your County *</label>
+<select id="qCounty"><option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option></select>
+<label>Your Town / Area *</label>
+<input id="qTown" placeholder="e.g. Siaya Town">
+<label>Preferred Time</label>
+<input id="qTime" placeholder="e.g. Today 2pm, Tomorrow morning">
+<a href="#" onclick="quickEnquiry();return false;" class="btn">Send Enquiry on WhatsApp →</a>
+<p class="small" style="text-align:center">This is an enquiry, not a confirmed booking. Fundi will confirm availability and price.</p>
+</div>
+
+<div class="report-box" id="report">
+<h3 style="margin:0">📋 Report Your Job - Did Fundi Come?</h3>
+<p class="small">Enter your Job ID from WhatsApp. Example: FFK-124. This helps us reward good fundis and remove bad ones.</p>
+<label>Your Job ID *</label>
+<input id="rJobId" placeholder="e.g. FFK-124">
+<label>What happened?</label>
+<select id="rStatus">
+<option value="DONE">✅ Job Done - Fundi did good work</option>
+<option value="NO SHOW">❌ Fundi Did Not Show</option>
+<option value="BAD WORK">⚠️ Bad Work - Not happy</option>
+<option value="CANCELLED">🚫 I Cancelled The Job</option>
+</select>
+<label>Your Name (optional)</label>
+<input id="rName" placeholder="e.g. Mary">
+<a href="#" onclick="reportJob();return false;" class="btn-dark">Send Job Report →</a>
+<p class="small" style="text-align:center">If you report DONE, we will collect KES 200 from the fundi, not from you.</p>
 </div>
 
 <div class="section" id="find">
 <h2>How Fundi Fast Kenya Works</h2>
 <div class="card">
 <b>For Customers:</b><br>
-1. Choose your Province → County → Trade<br>
-2. View a real fundi profile<br>
-3. Tap WhatsApp → Send enquiry<br>
-4. Agree price + time directly with fundi. Pay AFTER work.<br><br>
+1. Use "I Need a Fundi Now" OR Choose Province → County → Trade<br>
+2. You get a Job ID like FFK-124 - save it<br>
+3. View a real fundi profile with photos<br>
+4. Tap WhatsApp → Send enquiry<br>
+5. Agree price + time. Pay AFTER work.<br>
+6. Report DONE / NO SHOW with your Job ID<br><br>
 <b>For Fundis:</b><br>
 1. Fill Join Form below<br>
 2. Owner reviews and calls you to check your number<br>
 3. If approved, your profile is published<br>
-4. You get customer enquiries on WhatsApp. You pay KES 200 only AFTER you get work.
+4. You get enquiries. You pay KES 200 only AFTER job is confirmed DONE.
 </div>
 
 <h2>Popular Trades</h2>
@@ -69,12 +117,31 @@ label{font-weight:bold;font-size:14px}
 
 <h2>Trust & Safety</h2>
 <div class="card">
-• Your fundi's phone number is <b>NEVER shown</b> on the website. You book via Fundi Fast Kenya.<br>
-• We do <b>NOT</b> show "Verified" unless we have checked it. See badges below.<br>
-• <span class="badge">Phone Checked</span> = We called the number and spoke to the fundi.<br>
-• <span class="badge-grey">New Listing</span> = Just joined, phone check pending.<br>
-• Always agree price, scope and time BEFORE work starts.<br>
-• Do not pay in advance unless you agree it yourself.
+- Your fundi's phone number is <b>NEVER shown</b> on the website. You book via Fundi Fast Kenya.<br>
+- We do <b>NOT</b> show "Verified" unless we have checked it.<br>
+- <span class="badge">Phone Checked</span> = We called the number and spoke to the fundi.<br>
+- <span class="badge-top">⭐ Top Fundi</span> = 3+ jobs reported DONE, no complaints.<br>
+- <span class="badge-grey">New Listing</span> = Just joined, phone check pending.<br>
+- 2x NO SHOW reports = Fundi is removed.<br>
+- Always agree price, scope and time BEFORE work starts.<br>
+- Do not pay in advance unless you agree it yourself.
+</div>
+
+<h2>💰 Price Guide - What Should It Cost?</h2>
+<div class="card">
+<p class="small">Indicative starting prices only. Final price is agreed between you and fundi BEFORE work. Price depends on size, materials, and location.</p>
+<table>
+<tr><th>Trade</th><th>Typical Starting Price</th></tr>
+<tr><td>🔧 Plumber - Visit / Small Fix</td><td>From KES 500</td></tr>
+<tr><td>⚡ Electrician - Visit / Small Fix</td><td>From KES 800</td></tr>
+<tr><td>🎨 Painter - Per Room</td><td>From KES 2,500</td></tr>
+<tr><td>🔥 Welder - Small Gate / Grill Repair</td><td>From KES 1,500</td></tr>
+<tr><td>🪵 Carpenter - Furniture Repair</td><td>From KES 1,000</td></tr>
+<tr><td>🚗 Mechanic - Diagnosis / Service</td><td>From KES 1,000</td></tr>
+<tr><td>🧹 Mama Fua - Per Visit</td><td>From KES 500</td></tr>
+<tr><td>🧱 Mason - Per Day</td><td>From KES 1,500</td></tr>
+</table>
+<p class="small">Materials are extra unless fundi says included. Ask: "Is this labour only or including materials?"</p>
 </div>
 
 <h2>1. Choose Your Province 👇</h2>
@@ -88,217 +155,4 @@ label{font-weight:bold;font-size:14px}
 <button class="county-btn" onclick="showCounty('Taita-Taveta',this)">Taita-Taveta</button>
 </div>
 <button class="prov-btn" onclick="showProvince('northeastern')">🏜️ North Eastern Province <span>›</span></button>
-<div class="county-box" id="northeastern">
-<button class="county-btn" onclick="showCounty('Garissa',this)">Garissa</button>
-<button class="county-btn" onclick="showCounty('Wajir',this)">Wajir</button>
-<button class="county-btn" onclick="showCounty('Mandera',this)">Mandera</button>
-</div>
-<button class="prov-btn" onclick="showProvince('eastern')">⛰️ Eastern Province <span>›</span></button>
-<div class="county-box" id="eastern">
-<button class="county-btn" onclick="showCounty('Marsabit',this)">Marsabit</button>
-<button class="county-btn" onclick="showCounty('Isiolo',this)">Isiolo</button>
-<button class="county-btn" onclick="showCounty('Meru',this)">Meru</button>
-<button class="county-btn" onclick="showCounty('Tharaka-Nithi',this)">Tharaka-Nithi</button>
-<button class="county-btn" onclick="showCounty('Embu',this)">Embu</button>
-<button class="county-btn" onclick="showCounty('Kitui',this)">Kitui</button>
-<button class="county-btn" onclick="showCounty('Machakos',this)">Machakos</button>
-<button class="county-btn" onclick="showCounty('Makueni',this)">Makueni</button>
-</div>
-<button class="prov-btn" onclick="showProvince('central')">🌳 Central Province <span>›</span></button>
-<div class="county-box" id="central">
-<button class="county-btn" onclick="showCounty('Nyandarua',this)">Nyandarua</button>
-<button class="county-btn" onclick="showCounty('Nyeri',this)">Nyeri</button>
-<button class="county-btn" onclick="showCounty('Kirinyaga',this)">Kirinyaga</button>
-<button class="county-btn" onclick="showCounty('Murang\'a',this)">Murang'a</button>
-<button class="county-btn" onclick="showCounty('Kiambu',this)">Kiambu</button>
-</div>
-<button class="prov-btn" onclick="showProvince('rift')">🏔️ Rift Valley Province <span>›</span></button>
-<div class="county-box" id="rift">
-<button class="county-btn" onclick="showCounty('Turkana',this)">Turkana</button>
-<button class="county-btn" onclick="showCounty('West Pokot',this)">West Pokot</button>
-<button class="county-btn" onclick="showCounty('Samburu',this)">Samburu</button>
-<button class="county-btn" onclick="showCounty('Trans Nzoia',this)">Trans Nzoia</button>
-<button class="county-btn" onclick="showCounty('Uasin Gishu',this)">Uasin Gishu</button>
-<button class="county-btn" onclick="showCounty('Elgeyo-Marakwet',this)">Elgeyo-Marakwet</button>
-<button class="county-btn" onclick="showCounty('Nandi',this)">Nandi</button>
-<button class="county-btn" onclick="showCounty('Baringo',this)">Baringo</button>
-<button class="county-btn" onclick="showCounty('Laikipia',this)">Laikipia</button>
-<button class="county-btn" onclick="showCounty('Nakuru',this)">Nakuru</button>
-<button class="county-btn" onclick="showCounty('Narok',this)">Narok</button>
-<button class="county-btn" onclick="showCounty('Kajiado',this)">Kajiado</button>
-<button class="county-btn" onclick="showCounty('Kericho',this)">Kericho</button>
-<button class="county-btn" onclick="showCounty('Bomet',this)">Bomet</button>
-</div>
-<button class="prov-btn" onclick="showProvince('western')">🌾 Western Province <span>›</span></button>
-<div class="county-box" id="western">
-<button class="county-btn" onclick="showCounty('Kakamega',this)">Kakamega</button>
-<button class="county-btn" onclick="showCounty('Vihiga',this)">Vihiga</button>
-<button class="county-btn" onclick="showCounty('Bungoma',this)">Bungoma</button>
-<button class="county-btn" onclick="showCounty('Busia',this)">Busia</button>
-</div>
-<button class="prov-btn" onclick="showProvince('nyanza')">🎣 Nyanza Province <span>›</span></button>
-<div class="county-box" id="nyanza">
-<button class="county-btn" onclick="showCounty('Siaya',this)">Siaya</button>
-<button class="county-btn" onclick="showCounty('Kisumu',this)">Kisumu</button>
-<button class="county-btn" onclick="showCounty('Homa Bay',this)">Homa Bay</button>
-<button class="county-btn" onclick="showCounty('Migori',this)">Migori</button>
-<button class="county-btn" onclick="showCounty('Kisii',this)">Kisii</button>
-<button class="county-btn" onclick="showCounty('Nyamira',this)">Nyamira</button>
-</div>
-<button class="prov-btn" onclick="showProvince('nairobi')">🏙️ Nairobi Province <span>›</span></button>
-<div class="county-box" id="nairobi">
-<button class="county-btn" onclick="showCounty('Nairobi',this)">Nairobi</button>
-</div>
-<p class="small">We list all 47 counties so you can request a fundi anywhere, but we only show REAL fundis who have been approved. Coverage is growing county by county. If no fundi is listed yet in your county, use Request Fundi below.</p>
-</div>
-
-<div id="resultSection" style="display:none">
-<p style="padding:0 15px"><span class="back" onclick="goBack()">← Back to Provinces</span></p>
-<h2 style="padding:0 15px" id="resultTitle">Fundis in Siaya</h2>
-<div id="list"></div>
-<div style="padding:0 15px">
-<div class="card" style="background:#fff3cd">
-<h3>Don't see your fundi? We will find for you</h3>
-<p id="requestText">Tell us what you need in this county.</p>
-<label>What work do you need? (optional)</label>
-<input id="custNeed" placeholder="e.g. Fix leaking pipe">
-<label>Your Town / Area</label>
-<input id="custTown" placeholder="e.g. Siaya Town">
-<label>Preferred Time</label>
-<input id="custTime" placeholder="e.g. Today 2pm">
-<a class="btn2" id="requestBtn" href="#" onclick="requestFundi();return false;">Request Fundi in This County →</a>
-<p class="small">This sends an enquiry, not a confirmed booking. Fundi will confirm availability.</p>
-</div>
-</div>
-</div>
-
-<!-- FUNDI PROFILES - REAL ONLY -->
-<div id="fundiCards" style="display:none">
-<!-- *** PASTE NEW FUNDIS HERE *** -->
-<!-- Paste cards from Meta AI here. Do not paste fake fundis. -->
-</div>
-
-<!-- JOIN FORM -->
-<div class="join-box" id="join">
-<h3>Are you a Fundi? Join Fundi Fast Kenya</h3>
-<p>Get customers in your county. Your number will NOT be shown on the website.</p>
-<div class="notice">
-<b>KES 200 Fee - Read Before Joining:</b><br>
-• You pay <b>KES 200 per job you successfully get</b> through Fundi Fast Kenya.<br>
-• You pay <b>AFTER</b> the job is done, not before.<br>
-• No fee if customer cancels before work, or job does not proceed.<br>
-• No monthly fee. No guarantee of jobs or income.<br>
-• If there is a dispute, tell Fundi Fast Kenya on WhatsApp and we will review.
-</div><br>
-<label>Full Name / Business Name *</label>
-<input id="fName" placeholder="e.g. Kevin Otieno">
-<label>Your Phone Number *</label>
-<input id="fPhone" placeholder="e.g. 0712345678">
-<label>Type of Work *</label>
-<select id="fSkill">
-<option>Plumber</option><option>Electrician</option><option>Painter</option><option>Carpenter</option><option>Welder</option><option>Mechanic</option><option>Mama Fua</option><option>Mason / Fundi wa Mjengo</option><option>Other</option>
-</select>
-<label>Province *</label>
-<select id="fProvince"><option>Coast</option><option>North Eastern</option><option>Eastern</option><option>Central</option><option>Rift Valley</option><option>Western</option><option>Nyanza</option><option>Nairobi</option></select>
-<label>County *</label>
-<select id="fCounty">
-<option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option><option>Nairobi</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option><option>Garissa</option><option>Wajir</option><option>Mandera</option><option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option><option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option><option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option><option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option>
-</select>
-<label>Residence / Town / Service Area *</label>
-<input id="fTown" placeholder="e.g. Kayole, Nairobi">
-<label>Years Experience</label>
-<input id="fExp" placeholder="e.g. 6">
-<label>Indicative Starting Price (KES) - or Request Quote</label>
-<input id="fPrice" placeholder="e.g. 1500">
-<label>Short Description (optional)</label>
-<textarea id="fDesc" rows="2" placeholder="e.g. I fix gates, grills and doors. I bring my own tools."></textarea>
-<a href="#" onclick="joinFundi();return false;" style="display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px">Send Application to Fundi Fast Kenya →</a>
-<p class="small" style="text-align:center">Photo is optional. You can send photos on WhatsApp after. By sending, you agree your name, trade, area, experience and price can be shown publicly after approval. Your phone number will NOT be shown publicly.</p>
-<p class="small" style="text-align:center"><b>Privacy:</b> Your details are used only to review your application and connect you to customers. We do not sell your data. Do not send ID numbers on this form.</p>
-</div>
-
-<div class="section">
-<h2>Help & Contact</h2>
-<div class="card">
-WhatsApp: 0768643301<br>
-Home Base: Siaya County, Kenya<br>
-Working Hours: Mon - Sat, 8am - 6pm<br>
-If a fundi does not respond, message us again and we will find another.
-</div>
-</div>
-
-<div class="footer">Fundi Fast Kenya - All 47 Counties<br>Find a Fundi. Get the Job Done. Pay After Work.<br>WhatsApp: 0768643301</div>
-
-<script>
-var currentCounty = 'Siaya';
-function showProvince(id){
-  var boxes=document.querySelectorAll('.county-box');
-  boxes.forEach(function(b){ if(b.id!==id){b.style.display='none'} });
-  var box=document.getElementById(id);
-  box.style.display = box.style.display==='block' ? 'none' : 'block';
-}
-function showCounty(county, btn){
-  currentCounty = county;
-  document.querySelectorAll('.county-btn').forEach(function(b){b.classList.remove('active')});
-  if(btn) btn.classList.add('active');
-  document.getElementById('find').style.display='none';
-  document.getElementById('resultSection').style.display='block';
-  document.getElementById('resultTitle').innerText='Fundis in '+county;
-  document.getElementById('requestText').innerText='Tell us what you need in '+county+'. We will try to find a fundi.';
-  var list=document.getElementById('list');
-  list.innerHTML='';
-  var cards=document.querySelectorAll('#fundiCards .fundi-card');
-  var found=false;
-  cards.forEach(function(c){
-    if(c.getAttribute('data-county')===county){
-      var clone=c.cloneNode(true);
-      clone.style.display='block';
-      list.appendChild(clone);
-      found=true;
-    }
-  });
-  if(!found){
-    var div=document.createElement('div');
-    div.style.cssText='background:#fff;margin:12px 15px;padding:15px;border-radius:12px';
-    div.innerHTML='<h3>No fundi listed yet in '+county+'</h3><p>Coverage is growing. Use Request Fundi below and we will try to find one for you.</p>';
-    list.appendChild(div);
-  }
-}
-function goBack(){
-  document.getElementById('resultSection').style.display='none';
-  document.getElementById('find').style.display='block';
-}
-function requestFundi(){
-  var need=document.getElementById('custNeed').value || 'General fundi work';
-  var town=document.getElementById('custTown').value || 'Not specified';
-  var time=document.getElementById('custTime').value || 'Flexible';
-  var msg="CUSTOMER ENQUIRY%0A%0A"+"County: "+encodeURIComponent(currentCounty)+"%0A"+"Need: "+encodeURIComponent(need)+"%0A"+"Town: "+encodeURIComponent(town)+"%0A"+"Preferred Time: "+encodeURIComponent(time)+"%0A%0A"+"Please confirm if a fundi is available.";
-  window.open("https://wa.me/254768643301?text="+msg,"_blank");
-}
-function joinFundi(){
-  var name=document.getElementById('fName').value;
-  var phone=document.getElementById('fPhone').value;
-  var skill=document.getElementById('fSkill').value;
-  var prov=document.getElementById('fProvince').value;
-  var county=document.getElementById('fCounty').value;
-  var town=document.getElementById('fTown').value;
-  var exp=document.getElementById('fExp').value;
-  var price=document.getElementById('fPrice').value;
-  var desc=document.getElementById('fDesc').value;
-  if(!name || !phone || !town){ alert('Please fill Name, Phone and Town'); return; }
-  var msg = "NEW FUNDI APPLICATION%0A%0A" +
-  "Name: " + encodeURIComponent(name) + "%0A" +
-  "Phone: " + encodeURIComponent(phone) + "%0A" +
-  "Work: " + encodeURIComponent(skill) + "%0A" +
-  "Province: " + encodeURIComponent(prov) + "%0A" +
-  "County: " + encodeURIComponent(county) + "%0A" +
-  "Residence: " + encodeURIComponent(town) + "%0A" +
-  "Experience: " + encodeURIComponent(exp) + " Years%0A" +
-  "Price: From KES " + encodeURIComponent(price) + "%0A" +
-  "Description: " + encodeURIComponent(desc) + "%0A%0A" +
-  "I understand KES 200 fee is per completed job, paid after work.";
-  window.open("https://wa.me/254768643301?text=" + msg, "_blank");
-}
-</script>
-</body>
-</html>
+<div class="county-box" id="nort
