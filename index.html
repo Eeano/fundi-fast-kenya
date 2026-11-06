@@ -7,7 +7,7 @@
 body{font-family:Arial;margin:0;background:#f5f5f5}
 .header{background:#111;color:#fff;padding:25px;text-align:center}
 .header h1{margin:0;font-size:26px}
-.header p{color:#ffcc00}
+.header p{color:#ffcc00;margin:5px 0}
 .section{padding:15px}
 h2{font-size:19px;margin:15px 0 8px}
 .prov-btn{display:block;background:#fff;border:2px solid #111;padding:16px;margin:8px 0;border-radius:12px;font-size:17px;font-weight:bold;text-align:left;cursor:pointer;width:100%}
@@ -24,6 +24,17 @@ h2{font-size:19px;margin:15px 0 8px}
 .btn2{display:block;background:#111;color:#fff;text-align:center;padding:12px;border-radius:10px;text-decoration:none;margin-top:8px}
 .back{color:#111;font-weight:bold;cursor:pointer}
 .footer{text-align:center;padding:20px;color:#888;font-size:13px}
+.fundi-top{display:flex;gap:12px;align-items:center}
+.fundi-avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;background:#ddd}
+.fundi-initial{width:70px;height:70px;min-width:70px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:bold}
+.fundi-info{flex:1}
+.fundi-info p{margin:2px 0;font-size:14px;color:#444}
+.work-photos{display:flex;gap:8px;margin-top:10px}
+.work-photos img{width:50%;height:110px;object-fit:cover;border-radius:10px}
+.tag{background:#fff3cd;padding:3px 8px;border-radius:20px;font-size:12px}
+input,select{width:100%;padding:12px;margin:5px 0;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
+label{font-weight:bold;font-size:14px}
+.join-box{background:#e3f2fd;margin:15px;padding:15px;border-radius:12px}
 </style>
 </head>
 <body>
@@ -130,19 +141,138 @@ h2{font-size:19px;margin:15px 0 8px}
 </div>
 </div>
 
+<!-- ========== FUNDI PROFILES - ADD NEW FUNDIS HERE ========== -->
 <div id="fundiCards" style="display:none">
-<div class="card" data-county="Siaya" data-skill="Plumber"><h3>🔧 Plumber - Siaya <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Siaya">WhatsApp for Plumber in Siaya →</a></div>
-<div class="card" data-county="Siaya" data-skill="Electrician"><h3>⚡ Electrician - Siaya <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Siaya - Bondo, Ugunja, Siaya Town</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Siaya">WhatsApp for Electrician in Siaya →</a></div>
-<div class="card" data-county="Siaya" data-skill="Painter"><h3>🎨 Painter - Siaya <span class="badge">Verified</span></h3><p class="price">From KES 2,000 | Siaya Town, Bondo</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PAINTER%20in%20Siaya">WhatsApp for Painter in Siaya →</a></div>
-<div class="card" data-county="Kisumu" data-skill="Plumber"><h3>🔧 Plumber - Kisumu <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Kisumu - Milimani, Kondele</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Kisumu">WhatsApp for Plumber in Kisumu →</a></div>
-<div class="card" data-county="Nairobi" data-skill="Plumber"><h3>🔧 Plumber - Nairobi <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Nairobi - Roysambu, Kasarani, Westlands</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20in%20Nairobi">WhatsApp for Plumber in Nairobi →</a></div>
-<div class="card" data-county="Mombasa" data-skill="Electrician"><h3>⚡ Electrician - Mombasa <span class="badge">Verified</span></h3><p class="price">Visit: KES 500 | Mombasa - Nyali, Bamburi</p><a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20ELECTRICIAN%20in%20Mombasa">WhatsApp for Electrician in Mombasa →</a></div>
+
+<!-- WELDER NAIROBI - WITH PHOTO EXAMPLE - If no photo, use initial version below -->
+<div class="card" data-county="Nairobi" data-skill="Welder">
+<div class="fundi-top">
+<img class="fundi-avatar" src="welder-kevin-1.jpg" onerror="this.style.display='none'">
+<div class="fundi-info">
+<h3>🔥 Kevin Otieno - Welder <span class="badge">Verified</span></h3>
+<p>📍 Residence: Kayole, Nairobi</p>
+<p>⭐ Experience: 6 Years | <span class="tag">Gates, Grills, Doors</span></p>
+<p class="price">From KES 1,500 | Available Today</p>
+</div>
+</div>
+<p style="font-size:13px;color:#666;margin:8px 0 0">My Recent Work 👇</p>
+<div class="work-photos">
+<img src="welder-kevin-1.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Work+1'">
+<img src="welder-kevin-2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Work+2'">
+</div>
+<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20WELDER%20Kevin%20in%20Nairobi%20(Kayole)">WhatsApp to Book Kevin →</a>
+<p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
 </div>
 
-<div class="card" style="display:block;background:#e3f2fd;margin:15px">
+<!-- MECHANIC NAIROBI - NO PHOTO EXAMPLE - Initial Letter -->
+<div class="card" data-county="Nairobi" data-skill="Mechanic">
+<div class="fundi-top">
+<div class="fundi-initial">B</div>
+<div class="fundi-info">
+<h3>🚗 Brian Kamau - Mechanic <span class="badge">Verified</span></h3>
+<p>📍 Residence: Roysambu, Nairobi</p>
+<p>⭐ Experience: 8 Years | <span class="tag">Engine, Brakes, Service</span></p>
+<p class="price">From KES 1,000 | Available Today</p>
+</div>
+</div>
+<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya. Ask for photos on WhatsApp before job.</p>
+<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20MECHANIC%20Brian%20in%20Nairobi%20(Roysambu)">WhatsApp to Book Brian →</a>
+<p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
+</div>
+
+<!-- PLUMBER SIAYA - NO PHOTO EXAMPLE -->
+<div class="card" data-county="Siaya" data-skill="Plumber">
+<div class="fundi-top">
+<div class="fundi-initial">O</div>
+<div class="fundi-info">
+<h3>🔧 Otis Onyango - Plumber <span class="badge">Verified</span></h3>
+<p>📍 Residence: Siaya Town, Siaya</p>
+<p>⭐ Experience: 5 Years | <span class="tag">Pipes, Tanks, Toilets</span></p>
+<p class="price">From KES 500 | Available Today</p>
+</div>
+</div>
+<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya.</p>
+<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20PLUMBER%20Otis%20in%20Siaya">WhatsApp to Book Otis →</a>
+<p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
+</div>
+
+<!-- ===== TEMPLATE TO COPY FOR NEW FUNDI - NO PHOTO =====
+<div class="card" data-county="COUNTY" data-skill="SKILL">
+<div class="fundi-top">
+<div class="fundi-initial">X</div>
+<div class="fundi-info">
+<h3>🔧 NAME - SKILL <span class="badge">Verified</span></h3>
+<p>📍 Residence: TOWN, COUNTY</p>
+<p>⭐ Experience: X Years | <span class="tag">What he does</span></p>
+<p class="price">From KES XXX | Available Today</p>
+</div>
+</div>
+<p style="font-size:13px;color:#666;margin-top:10px">No photo yet - Verified by Fundi Fast Kenya.</p>
+<a class="btn" href="https://wa.me/254768643301?text=Hi%20Fundi%20Fast%20Kenya,%20I%20need%20SKILL%20NAME%20in%20COUNTY">WhatsApp to Book NAME →</a>
+<p style="font-size:12px;color:#888;text-align:center">Number hidden for safety. Book via Fundi Fast Kenya.</p>
+</div>
+-->
+
+</div>
+
+<!-- ========== JOIN FORM - FUNDIS JOIN HERE ========== -->
+<div class="join-box">
 <h3>Are you a Fundi? Join - All 47 Counties</h3>
-<p>Get customers in your county. Pay only KES 200 when you get work.</p>
-<a class="btn2" href="https://wa.me/254768643301?text=Hi,%20I%20am%20a%20FUNDI,%20I%20want%20to%20join%20Fundi%20Fast%20Kenya">I am a Fundi - Join →</a>
+<p>Get customers in your county. Pay only KES 200 when you get work. Your number will NOT be shown on website.</p>
+
+<label>Full Name *</label>
+<input id="fName" placeholder="e.g. Kevin Otieno">
+
+<label>Your Phone Number *</label>
+<input id="fPhone" placeholder="e.g. 0712345678">
+
+<label>Type of Work *</label>
+<select id="fSkill">
+<option>Plumber</option>
+<option>Electrician</option>
+<option>Painter</option>
+<option>Carpenter</option>
+<option>Welder</option>
+<option>Mechanic</option>
+<option>Mama Fua</option>
+<option>Mason / Fundi wa Mjengo</option>
+<option>Other</option>
+</select>
+
+<label>Province *</label>
+<select id="fProvince">
+<option>Coast</option>
+<option>North Eastern</option>
+<option>Eastern</option>
+<option>Central</option>
+<option>Rift Valley</option>
+<option>Western</option>
+<option>Nyanza</option>
+<option>Nairobi</option>
+</select>
+
+<label>County *</label>
+<select id="fCounty">
+<option>Siaya</option><option>Kisumu</option><option>Homa Bay</option><option>Migori</option><option>Kisii</option><option>Nyamira</option>
+<option>Nairobi</option><option>Mombasa</option><option>Kwale</option><option>Kilifi</option><option>Tana River</option><option>Lamu</option><option>Taita-Taveta</option>
+<option>Garissa</option><option>Wajir</option><option>Mandera</option>
+<option>Marsabit</option><option>Isiolo</option><option>Meru</option><option>Tharaka-Nithi</option><option>Embu</option><option>Kitui</option><option>Machakos</option><option>Makueni</option>
+<option>Nyandarua</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Kiambu</option>
+<option>Turkana</option><option>West Pokot</option><option>Samburu</option><option>Trans Nzoia</option><option>Uasin Gishu</option><option>Elgeyo-Marakwet</option><option>Nandi</option><option>Baringo</option><option>Laikipia</option><option>Nakuru</option><option>Narok</option><option>Kajiado</option><option>Kericho</option><option>Bomet</option>
+<option>Kakamega</option><option>Vihiga</option><option>Bungoma</option><option>Busia</option>
+</select>
+
+<label>Residence / Town *</label>
+<input id="fTown" placeholder="e.g. Kayole">
+
+<label>Years Experience</label>
+<input id="fExp" placeholder="e.g. 6">
+
+<label>Price From (KES)</label>
+<input id="fPrice" placeholder="e.g. 1500">
+
+<a href="#" onclick="joinFundi();return false;" style="display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px">Send to Fundi Fast Kenya →</a>
+<p style="font-size:12px;color:#666;text-align:center">Photo is optional. You can send photos on WhatsApp after.</p>
 </div>
 
 <div class="footer">Fundi Fast Kenya - All 47 Counties<br>Home Base: Siaya | WhatsApp: 0768643301<br>Pay After Work. No Scam.</div>
@@ -184,6 +314,28 @@ function showCounty(county, btn){
 function goBack(){
   document.getElementById('resultSection').style.display='none';
   document.getElementById('provinceSection').style.display='block';
+}
+function joinFundi(){
+  var name=document.getElementById('fName').value;
+  var phone=document.getElementById('fPhone').value;
+  var skill=document.getElementById('fSkill').value;
+  var prov=document.getElementById('fProvince').value;
+  var county=document.getElementById('fCounty').value;
+  var town=document.getElementById('fTown').value;
+  var exp=document.getElementById('fExp').value;
+  var price=document.getElementById('fPrice').value;
+  if(!name || !phone || !town){ alert('Please fill Name, Phone and Town'); return; }
+  var msg = "NEW FUNDI JOINING%0A%0A" +
+  "Name: " + encodeURIComponent(name) + "%0A" +
+  "Phone: " + encodeURIComponent(phone) + "%0A" +
+  "Work: " + encodeURIComponent(skill) + "%0A" +
+  "Province: " + encodeURIComponent(prov) + "%0A" +
+  "County: " + encodeURIComponent(county) + "%0A" +
+  "Residence: " + encodeURIComponent(town) + "%0A" +
+  "Experience: " + encodeURIComponent(exp) + " Years%0A" +
+  "Price: From KES " + encodeURIComponent(price) + "%0A%0A" +
+  "Photo: I will send on WhatsApp if I have";
+  window.open("https://wa.me/254768643301?text=" + msg, "_blank");
 }
 </script>
 </body>
