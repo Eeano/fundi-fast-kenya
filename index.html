@@ -14,10 +14,13 @@ header p{margin:5px 0}
 .box{background:#fff;margin:10px;padding:15px;border-radius:10px}
 .btn{display:block;background:#16a34a;color:#fff;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
 .btn2{display:block;background:#111;color:#ffcc00;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.btnGold{display:block;background:#ffcc00;color:#111;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
 input,select,textarea{width:100%;padding:12px;margin:5px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
 h2{margin-top:0}
 .fundi{border:2px solid #16a34a}
+.verified{background:#ffcc00;color:#111;padding:3px 8px;border-radius:20px;font-size:12px;font-weight:bold}
 .small{font-size:13px;color:#555}
+.priceBox{border:2px solid #ffcc00;background:#fffbe6}
 footer{background:#111;color:#fff;text-align:center;padding:15px;font-size:13px}
 </style>
 </head>
@@ -31,12 +34,12 @@ footer{background:#111;color:#fff;text-align:center;padding:15px;font-size:13px}
 
 <div class="green">
 WhatsApp: 0181628290<br>
-M-PESA for Service Fee: 0181628290
+M-PESA for Fees: 0181628290
 </div>
 
 <div class="yellow">
 <b>Fundi Sets His Own Price.</b><br>
-Customer Connects On WhatsApp.<br>
+Customer Pays Fundi Directly.<br>
 Pay AFTER job is done. No fee if job does not happen.
 </div>
 
@@ -44,12 +47,11 @@ Pay AFTER job is done. No fee if job does not happen.
 <h2>🔍 Find A Fundi</h2>
 <p>Choose your County and Town below, then WhatsApp us.</p>
 <label>County</label>
-<select id="county">
-<option value="">-- Select County --</option>
+<select>
 <option>Nairobi</option><option>Siaya</option><option>Kisumu</option><option>Mombasa</option><option>Nakuru</option><option>Eldoret - Uasin Gishu</option><option>Kakamega</option><option>Kiambu</option><option>Machakos</option><option>Nyeri</option><option>Other - All 47 Counties</option>
 </select>
 <label>Town</label>
-<input id="town" placeholder="e.g. Siaya Town, Nairobi, Bondo">
+<input placeholder="e.g. Siaya Town, Nairobi, Bondo">
 <a class="btn" href="https://wa.me/254181628290?text=Hi%20Fundi%20Fast%20Kenya!%20I%20need%20a%20Fundi">Find Fundi On WhatsApp →</a>
 </div>
 
@@ -57,7 +59,7 @@ Pay AFTER job is done. No fee if job does not happen.
 <h2>👷 Our Fundis</h2>
 <p><b>Total Fundis: 1</b></p>
 <hr>
-<p><b>Frank - Welder and Fabricator - FU-329</b><br>
+<p><b>Frank - Welder and Fabricator - FU-329</b> <span class="verified">⭐ VERIFIED</span><br>
 📍 Nairobi Town, Nairobi County<br>
 🔧 Work: Welder - Roofing and Flaming<br>
 💼 Experience: Steel Structures Ltd + Zenith Steel Fabricators<br>
@@ -66,16 +68,22 @@ Pay AFTER job is done. No fee if job does not happen.
 ⭐ 0 Jobs Done</p>
 <a class="btn" href="https://wa.me/254181628290?text=JOB%20REQUEST%20-%20Frank%20Welder%20Nairobi%20FU-329">Request Frank For This Job →</a>
 <p class="small">Pay fee AFTER job is done to M-PESA 0181628290.</p>
+</div>
 
-<!-- PASTE NEXT FUNDI HERE - JUST COPY FRANK'S BLOCK ABOVE -->
-
+<div class="box priceBox">
+<h2>⭐ FUNDI PRICES - OFFICIAL</h2>
+<p><b>1. JOIN = FREE</b><br>Your name goes on website. No pay.</p>
+<p><b>2. VERIFIED = 100 KES ONE TIME</b><br>⭐ VERIFIED Badge + Go to TOP + Get Jobs FIRST.<br>Pay 100 KES to M-PESA <b>0181628290</b> then send screenshot on WhatsApp.</p>
+<p><b>3. AFTER EVERY JOB = 200 KES</b><br>Only AFTER job is done. If no job, you pay ZERO.<br>Pay 200 KES to M-PESA <b>0181628290</b></p>
+<a class="btnGold" href="https://wa.me/254181628290?text=Hi!%20I%20want%20to%20be%20VERIFIED.%20I%20have%20sent%20100%20KES.%20My%20Name:%20%20My%20Work:%20%20My%20Town:%20">PAY 100 KES TO GET VERIFIED ⭐ →</a>
+<p class="small">Example: Frank gets 10 jobs = 100 (Verified) + 10 x 200 = 2,100 KES total. If Frank gets 0 jobs, he pays 0 KES for jobs.</p>
 </div>
 
 <div class="box">
 <h2>📝 Fundi - Apply To Join</h2>
 <p>Send: Your Name + Your Work + Your Town</p>
 <a class="btn" href="https://wa.me/254181628290?text=Hi!%20I%20want%20to%20join%20as%20a%20Fundi.%20My%20Name:%20%20My%20Work:%20%20My%20Town:%20">Apply On WhatsApp →</a>
-<p class="small">YOU set your own price. We find customers for you. You pay small fee AFTER job is done. No fee if no job.</p>
+<p class="small">JOIN FREE. VERIFIED 100 KES. AFTER JOB 200 KES. No fee if no job.</p>
 </div>
 
 <div class="box">
@@ -87,7 +95,7 @@ Pay AFTER job is done. No fee if job does not happen.
 <footer>
 FUNDI FAST KENYA<br>
 WhatsApp: 0181628290 | M-PESA: 0181628290<br>
-https://eeano.github.io/fundi-fast-kenya/<br>
+FUNDI: Join FREE | Verified 100 KES | After Job 200 KES<br>
 Pay AFTER job is done. No fee if job does not happen.
 </footer>
 
